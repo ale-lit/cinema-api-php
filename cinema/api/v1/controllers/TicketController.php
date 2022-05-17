@@ -19,7 +19,7 @@ class TicketController extends BaseController
                     $this->showBadRequest();
                     die("Указан не корректный id билета");
                 }
-                $this->answer = $this->seanceModel->getById($id);
+                $this->answer = $this->ticketModel->getById($id);
                 $this->sendAnswer();
             } else {
                 $this->answer = $this->ticketModel->getAll();
