@@ -11,15 +11,15 @@ class SeanceController extends BaseController
 
     public function main($data = 0)
     {
-        print_r($data);
         $method = $_SERVER['REQUEST_METHOD'];
         if($method === 'GET') {
             if (!empty($data)) {
-                echo "333";
+                echo "222";
                 $id = $data[0];
                 $this->answer = $this->seanceModel->getById($id);
                 $this->sendAnswer();
             } else {
+                
                 $this->answer = $this->seanceModel->getAll();
                 $this->sendAnswer();
             }
