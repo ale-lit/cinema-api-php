@@ -1,12 +1,12 @@
 <?php
 
-class SeanceController extends BaseController
+class TicketController extends BaseController
 {
-    private $seanceModel;
+    private $ticketModel;
 
     public function __construct()
     {
-        $this->seanceModel = new Seance();
+        $this->ticketModel = new Ticket();
     }
 
     public function main($data = 0)
@@ -17,26 +17,14 @@ class SeanceController extends BaseController
                 $id = htmlentities($id);
                 if (!preg_match("/^[0-9]{1,10}$/i", $id)) {
                     $this->showBadRequest();
-                    die("Указан не корректный id сеанса или дата");
+                    die("Указан не корректный id билета");
                 }
                 $this->answer = $this->seanceModel->getById($id);
                 $this->sendAnswer();
             } else {
-                $this->answer = $this->seanceModel->getAll();
+                $this->answer = $this->ticketModel->getAll();
                 $this->sendAnswer();
             }
-        } else {
-            $this->showNotAllowed();
-        }
-    }    
-
-    public function date($data = 0)
-    {
-        if($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $date = $data[0];
-            $date = htmlentities($date);
-            $this->answer = $this->seanceModel->getByDate($date);
-            $this->sendAnswer();
         } else {
             $this->showNotAllowed();
         }
