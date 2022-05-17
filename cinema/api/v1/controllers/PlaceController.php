@@ -9,23 +9,19 @@ class PlaceController extends BaseController
         $this->placeModel = new Place();
     }
 
-    public function main($id = 0)
+    public function main($data = 0)
     {
-        $method = $_SERVER['REQUEST_METHOD'];
-        switch ($method) {
-            case 'GET':
-                $this->get($id);
-                break;
-            default:
-                $this->showNotAllowed();
-                break;
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $seanceId = $data[0];
+            $seanceId = htmlentities($seanceId);            
+            if (!preg_match("/^[0-9]{1,10}$/i", $seanceId)) {
+                $this->showBadRequest();
+                die("Указан не корректный id сеанса");
+            }
+            $this->answer = $this->placeModel->getAll($seanceId);
+            $this->sendAnswer();
+        } else {
+            $this->showNotAllowed();
         }
-    }
-
-    public function get($data)
-    {
-        $seanceId = $data[0];
-        $this->answer = $this->placeModel->getAll($seanceId);
-        $this->sendAnswer();
     }
 }
