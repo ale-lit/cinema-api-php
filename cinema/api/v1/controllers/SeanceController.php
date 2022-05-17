@@ -1,12 +1,12 @@
 <?php
 
-class HallController extends BaseController
+class SeanceController extends BaseController
 {
-    private $hallModel;
+    private $seanceModel;
 
     public function __construct()
     {
-        $this->hallModel = new Hall();
+        $this->seanceModel = new Seance();
     }
 
     public function main($id = 0)
@@ -25,11 +25,11 @@ class HallController extends BaseController
     public function get($data)
     {
         if (!empty($data)) {
-            $id = $data[0];
-            $this->answer = $this->hallModel->getById($id);
+            $date = $data[0];
+            $this->answer = $this->seanceModel->getByDate($date);
             $this->sendAnswer();
         } else {
-            $this->answer = $this->hallModel->getAll();
+            $this->answer = $this->seanceModel->getAll();
             $this->sendAnswer();
         }
     }
