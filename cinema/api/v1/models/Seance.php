@@ -23,9 +23,9 @@ class Seance extends BaseModel
     public function getByDate($date)
     {
         $query = "
-            SELECT `seance`.`ID` as 'id', `seance`.`datetime`, `seance`.`price`, `hall`.`name` as 'hall name',
-                    `cinema`.`ID` as 'cinema id', `cinema`.`name` as 'cinema name', `cinema`.`address`, `movies`.`name`,
-                    `movies`.`census`, `movies`.`desc`, `genre`.`name` as 'genre', CONCAT(`directed`.`first_name`, ' ', `directed`.`last_name`) as 'directed' 
+            SELECT `seance`.`ID` AS 'id', `seance`.`datetime`, `seance`.`price`, `hall`.`name` AS 'hall name',
+                    `cinema`.`ID` AS 'cinema id', `cinema`.`name` AS 'cinema name', `cinema`.`address`, `movies`.`name`,
+                    `movies`.`census`, `movies`.`desc`, `genre`.`name` AS 'genre', CONCAT(`directed`.`first_name`, ' ', `directed`.`last_name`) AS 'directed' 
                         FROM `seance`
                         LEFT JOIN `hall` ON `hall`.`ID` = `seance`.`ID_hall`
                         LEFT JOIN `cinema` ON `cinema`.`ID` = `hall`.`ID_cinema`

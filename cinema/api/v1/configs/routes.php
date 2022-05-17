@@ -12,5 +12,8 @@ $routes = array(
     'SeanceController' => array(
         'seances/([0-9]+\-[0-9]+\-[0-9]+)' => 'main/$1',
         'seances' => 'main'
+    ),
+    'PlaceController' => array(
+        'places/([0-9]+)' => 'main/$1'
     )
 );

@@ -5,7 +5,7 @@ class Hall extends BaseModel
     public function getAll()
     {
         $query = "
-            SELECT `hall`.`ID` as 'id', `hall`.`name`, `hall`.`ID_cinema` as 'cinema id', `cinema`.`name` as 'cinema name', `cinema`.`address`
+            SELECT `hall`.`ID` AS 'id', `hall`.`name`, `hall`.`ID_cinema` AS 'cinema id', `cinema`.`name` AS 'cinema name', `cinema`.`address`
                 FROM `hall`
                 LEFT JOIN `cinema` ON `cinema`.`ID` = `hall`.`ID_cinema`;
         ";
@@ -16,7 +16,7 @@ class Hall extends BaseModel
     public function getById($id)
     {
         $query = "
-            SELECT `hall`.`name`, `cinema`.`name` as 'cinema name', `cinema`.`address`
+            SELECT `hall`.`name`, `cinema`.`name` AS 'cinema name', `cinema`.`address`
                 FROM `hall`
                 LEFT JOIN `cinema` ON `cinema`.`ID` = `hall`.`ID_cinema`
                 WHERE `hall`.`ID` = $id;
