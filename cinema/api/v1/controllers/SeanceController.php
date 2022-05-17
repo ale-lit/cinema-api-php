@@ -30,11 +30,8 @@ class SeanceController extends BaseController
 
     public function date($data = 0)
     {
-        echo "4444";
         if($_SERVER['REQUEST_METHOD'] === 'GET') {
             if (!empty($data)) {
-                echo "4444";
-                echo $data;
                 $date = $data[0];
                 $this->answer = $this->seanceModel->getByDate($date);
                 $this->sendAnswer();
