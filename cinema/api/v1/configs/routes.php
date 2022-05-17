@@ -9,8 +9,9 @@ $routes = array(
         'halls/([0-9]+)' => 'main/$1',
         'halls' => 'main'
     ),
-    'SeanceController' => array(
-        'seances/([0-9]+\-[0-9]+\-[0-9]+)' => 'main/$1',
+    'SeanceController' => array(        
+        'seances/date/([0-9]+\-[0-9]+\-[0-9]+)' => 'date/$1',
+        'seances/([0-9]+)' => 'main/$1',
         'seances' => 'main'
     ),
     'PlaceController' => array(
