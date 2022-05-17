@@ -33,26 +33,4 @@ class CinemaController extends BaseController
             $this->sendAnswer();
         }
     }
-
-    // private function post()
-    // {
-    //     $data = json_decode(file_get_contents("php://input"), true);
-    //     $this->answer = $this->recipeModel->add($data);
-    //     $this->sendAnswer();
-    // }
-
-    // public function patch($data)
-    // {
-    //     $id = $data[0];
-    //     $data = json_decode(file_get_contents("php://input"), true);
-    //     $this->answer = $this->recipeModel->edit($data, $id);
-    //     $this->sendAnswer();
-    // }
-
-    // public function remove($data)
-    // {
-    //     $id = $data[0];
-    //     $this->answer = $this->recipeModel->remove($id);
-    //     $this->sendAnswer();
-    // }
 }
