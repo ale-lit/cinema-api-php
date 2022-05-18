@@ -11,6 +11,7 @@ class Place extends BaseModel
                 LEFT JOIN `ticket` ON `ticket`.`ID_seance` = `seance`.`ID` AND `ticket`.`row` = `place`.`row` AND `ticket`.`number` = `place`.`number`
                 LEFT JOIN `status` ON `status`.`ID` = `ticket`.`ID_status`
                 WHERE `place`.`ID_hall` = `seance`.`ID_hall`
+                GROUP BY `place`.`ID`
                 ORDER BY `row`, `number`;
         ";
         $result = mysqli_query($this->connect, $query);
