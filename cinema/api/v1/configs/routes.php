@@ -15,12 +15,10 @@ $routes = array(
         'seances' => 'main'
     ),
     'PlaceController' => array(
+        'places/check/' => 'check',
         'places/([0-9]+)' => 'main/$1'
     ),
     'TicketController' => array(
-        'ticket/add' => 'add',
-        'ticket/edit/([0-9]+)' => 'edit/$1',
-        'ticket/delete/([0-9]+)' => 'delete/$1',
         'tickets/([0-9]+)' => 'main/$1',
         'tickets' => 'main'
     )

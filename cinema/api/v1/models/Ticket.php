@@ -25,4 +25,35 @@ class Ticket extends BaseModel
         $result = mysqli_query($this->connect, $query);
         return mysqli_fetch_assoc($result);
     }
+
+    public function add($data)
+    {
+        $query = "
+            INSERT INTO `ticket`
+                SET `ID_seance` = $data[seance],
+                    `row` = $data[row],
+                    `number` = $data[number],
+                    `ID_status` = $data[status];
+        ";
+        return mysqli_query($this->connect, $query);
+    }
+
+    public function edit($status, $id)
+    {
+        $query = "
+            UPDATE `ticket`
+                SET `ID_status` = $status
+                WHERE `ID` = $id;
+        ";
+        return mysqli_query($this->connect, $query);
+    }
+
+    public function remove($id)
+    {
+        $query = "
+            DELETE FROM `ticket`
+                WHERE `ID` = $id;
+        ";
+        return mysqli_query($this->connect, $query);
+    }
 }

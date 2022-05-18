@@ -16,4 +16,16 @@ class Place extends BaseModel
         $result = mysqli_query($this->connect, $query);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
+
+    public function checkPlace($seance, $row, $number)
+    {
+        $query = "
+            SELECT IFNULL(`name`, 'Свободен') AS 'status'
+                FROM `ticket`
+                LEFT JOIN `status` ON `status`.`ID` = `ticket`.`ID_status`
+                WHERE `ID_seance` = $seance AND `row` = $row AND `number` = $number;
+        ";
+        $result = mysqli_query($this->connect, $query);
+        return mysqli_fetch_assoc($result);
+    }
 }
